@@ -21,13 +21,13 @@ const products = [
   }
 ];
 
-function GetProductsApi(callback)
-{
-  console.log("api called");
-  setTimeout(() => {
-    callback(products); //
-  }, 5000); //mock delay of api which is 5000 mili second.
-}
+// function GetProductsApi(callback)
+// {
+//   console.log("api called");
+//   setTimeout(() => {
+//     callback(products); //
+//   }, 5000); //mock delay of api which is 5000 mili second.
+// }
 
 //Api call to get the data 
 export default function Products() {
