@@ -13,7 +13,7 @@ export default function ProductCard(props) {
    return (
     <div className="card">
        <span> {props.product.title} </span>
-      <div>{props.product.price}</div>
+      <div>{props.product.price.value}</div>
     </div>
   );
  }

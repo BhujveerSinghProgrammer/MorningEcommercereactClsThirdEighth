@@ -1,0 +1,112 @@
+
+// Promises 
+
+// Imagine that there is a very famous singer
+// give me your email address 
+// whenever I launch my album 
+// I will email you the content
+// I promise you this 
+
+// resolve
+// recect
+// state - "pending"
+// success - state - "fulfilled"
+// failure - state - "rejected" 
+
+// then 
+// then function would have two params
+// 1st param is your success function 
+// 2nd param is your reject function 
+
+
+
+let p = new Promise(function (resolve, reject) {
+    //its a constructer function which has
+    // executor funciton
+    // sendEmail
+    // if(sendEmail(emailid)) 
+    // {resolve()}  
+    // else 
+    // {reject()}
+    // setTimeout(function() {
+    //   resolve("resolve");
+    // }, 1000)
+    //  reject("reject");
+    resolve("resolve");
+})
+
+p.then(
+    function (res) { console.log(res) },
+    function (rej) { console.log(rej) }
+)
+
+console.log(20);
+console.log(30);
+
+//Ajax call for api,it wrpper,any one can use this function by passing url and type.
+
+function customAjax(type, url) {
+    return new Promise(function (resolve, reject) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                resolve(this.responseText);
+            }
+            if (this.status !== 200) {
+                reject(new Error("error"))
+            }
+        };
+        xhttp.open(type, url, true);
+        xhttp.send();
+    })
+}
+
+
+customAjax("get", "ajax_info.txt").then(function (res) {
+    console.log(res);
+}, function (err) {
+    console.log(err);
+})
+
+
+// promise chaining
+
+new Promise(function (resolve, reject) {
+    resolve(2);
+}).then(
+    function (res) {
+        console.log(res);
+        return (res * 2);
+    }, function (rej) {
+        console.log(rej);
+    }
+).then(function (res) {
+    console.log(res);
+    return (res * 2);
+}, function (rej) {
+    console.log(rej);
+}).then(function (res) {
+    console.log(res);
+}, function (rej) {
+    console.log(rej);
+})
+
+
+
+
+new Promise(function (resolve, reject) {
+    resolve(2);
+}).then(
+    function (res) {
+        console.log(res);
+        return (res * 2);
+    }
+).then(function (res) {
+    console.log(res);
+    return (res * 2);
+}).then(function (res) {
+    console.log(res);
+}).catch(function (rej) {
+    console.log(rej);
+}
+)

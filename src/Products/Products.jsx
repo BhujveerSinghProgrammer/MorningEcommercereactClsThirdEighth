@@ -40,21 +40,59 @@ let [isLoading,setLoading]=useState(true);
 
 console.log("api call started");
 useEffect(
-function()
-{
-     GetProductsApi(
-     function(resp)
-     {
-      setGp(resp) //step 3,it works like setGp(gp=resp and rerender() the function Products())
-     //gp=resp;
-     setLoading(false);
-     console.log(gp);
-     console.log("api call ended");
-     }
-     );
-}
-,[gp]
-) //useEffect says if the gp is changed then call GetProductsApi again,it called two times ,first on empty gp and second on filled gp.,if gp will change again then it will again call this.
+    function () {
+      // getProductsApi(function (res) {
+      //   setGp(res);
+      //   // gp = res;
+      //   // loading = false
+      //   setLoading(false);
+      //   console.log(gp);
+      //   console.log("API call ended");
+      // });
+
+      // fetch returns a promise,actually it uses primises and ajax internally,if someone ask to you to create your own fetch then give given code:- this will also get the data from api
+
+      
+// function customAjax(type, url) {
+//   return new Promise(function(resolve, reject) {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//       if (this.readyState === 4 && this.status === 200) {
+//         resolve(this.responseText);
+//       } 
+//       if(this.status !== 200) {
+//         reject(new Error("error"))
+//       }
+//     };
+//     xhttp.open(type, url, true);
+//     xhttp.send();
+//   })
+// }
+
+// customAjax("get", "ajax_info.txt").then(function(res) {
+//   console.log(res);
+// }, function(err) {
+//   console.log(err);
+// })
+
+
+
+
+      fetch("https://602fc537a1e9d20017af105e.mockapi.io/api/v1/products")
+        .then((res) => {
+          return res.json();
+        })
+        .then((response) => {
+          setGp(response);
+          setLoading(false);
+        });
+    },
+    [gp]
+  );
+
+
+
+  //useEffect says if the gp is changed then call GetProductsApi again,it called two times ,first on empty gp and second on filled gp.,if gp will change again then it will again call this.
  
 
 
@@ -168,6 +206,9 @@ else
 //   xhttp.open("GET", "ajax_info.txt", true); // opening a connection b/w client and server
 //   xhttp.send();
 // }
+
+
+
 
 // backend what it does is that it has a controller
 // controller you write functions to fetch data from backend and manipulate that data
