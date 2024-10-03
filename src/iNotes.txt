@@ -1,0 +1,171 @@
+Important:Q1.usestate variable and useEffect.
+Ans:- useState:- its used to keep maintaining previous state and the current state values,and also it will have an rerender function call,calling rernder again and again whenever the state has changed.when state variable is set it rerendered again.without useEffect it rerendered one extra time.
+one is for mounting and filling state variable and second is for comparing last state variable value and terminate with rerendered,this rerendered is extra rerender.
+
+
+
+But using useEffect:-it checks dependency based on some value and then go ahead,so useEffect checks helps to control one extra rerender. so control rerender based on some value then we will use useEffect.
+actually it terminates with setGp,code doesnt go ahead, function doesnt rerender.[but using useState kit terminates the function but after setGp function ,it goes to rerender,thats the extra rerender,it can be prevented by useEffect functionalities. ]
+
+
+
+Q2:- // useEffect hook
+// useEffect(fn, []);
+// I will call this callback function
+// everytime dependent on this dependency array
+//Note:- There are 3 things can be in dependency array
+// when there is no dependency array
+// when there is an empty dependency array
+// when there is some value in this array
+// what can be passed in this dependency array
+// you can pass a state variable and you can pass a props from the parent which is a state variable
+
+
+//App.js
+
+
+//Step 1:- *&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+// // when there is no dependency array:-it will be called on mounting phase and also on rerendering phase
+
+
+
+//called one time on mounting phase
+//But if we use strict mode like given below,it will be called two times on mounting phases,check given code:-
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>
+//If you're running your React app in development mode with Strict Mode enabled, useEffect will be called twice on mount.
+
+
+
+import logo from './logo.svg';
+import './App.css';
+import {useEffect,useState} from "react"
+
+
+
+// function App() {
+//   useEffect(function()
+//   {
+//     console.log("Mount");
+//   }
+// );
+
+
+//***********************************************************/
+//If we want to add rerendering phase then we will use:- we will use useState
+
+function App() {
+  // when we are using useState 
+  let [count,setCount]=useState(0);
+//Here count is default value and setCount is the function,useState(0) is default value set ton 0.
+//Hindi:- iska matlab humne ek default variable count liya hai aur ek function setCount liya hai,
+//setCount function se hume kuch kaam karana hai ya setCount function mein hume kuch value fill karni hai.
+//jo value count ko refer karega aur phir usko hum use karenege.
+//Now it will first call on mounting phase and after click on button it will call on rerendering phase also.
+//it will call on mounting pahse and also on rerendering phase
+
+  useEffect(function()
+  {
+    console.log("Mount");
+  }
+);
+function inc()
+{
+  setCount(count+1); //yahan hum setCount se kaam kara rahe hai jo count+1 karega ,
+  //aur setCount function refer hoga count variable ko . let [count,setCount]=useState(0);
+
+}
+  return (
+    <div className="App">
+      <h1>Hello useEffect Hook example</h1>
+      <button onClick={inc}>inc</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+//Step 2:- *&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+// //  when there is an empty dependency array:-it will be called on mounting phase only.
+
+
+import logo from './logo.svg';
+import './App.css';
+import {useEffect,useState} from "react"
+
+function App() {
+  let [count,setCount]=useState(0);
+  useEffect(function()
+  {
+    console.log("Mount");
+  },[]);//when there is an empty dependency array:-it will be called on mounting phase only.,if we click on button also.
+
+function inc()
+{
+  setCount(count+1); 
+}
+  return (
+    <div className="App">
+      <h1>Hello useEffect Hook example</h1>
+      <button onClick={inc}>inc</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+//Step 3:-// when there is some value in this array:- you can pass a state variable and you can pass a props from the parent which is a state variable,
+//it will be called on mounting phase and also on rerendering phase.
+
+
+import logo from './logo.svg';
+import './App.css';
+import {useEffect,useState} from "react"
+
+function App() {
+  let [count,setCount]=useState(0);
+  let [count2,setCount2]=useState(0);
+  useEffect(function()
+  {
+    console.log("count 1",count);
+  },[count]);//when there is some value in this array:- you can pass a state variable and you can pass a props from the parent which is a state variable,here our state variable is count
+
+   useEffect(function()
+  {
+    console.log("count 2",count2);
+  },[count2]);
+
+
+   useEffect(function()
+  {
+    console.log("Mount",count,count2);
+  },[count,count2]);
+
+
+function inc()
+{
+  setCount(count+1); 
+}
+function inc1()
+{
+  setCount2(count2+1); 
+}
+  return (
+    <div className="App">
+      <h1>Hello useEffect Hook example</h1>
+      <button onClick={inc}>inc</button>
+         <button onClick={inc1}>inc 2</button>
+    </div>
+  );
+}
+
+export default App;
+
+//Note:-the Value will persisted for every rerender (button click)
+

@@ -1,0 +1,383 @@
+
+
+1.Callback example?
+*****************************************************************************************************************
+
+<script>
+function myDisplayer(something) {
+  document.getElementById("demo").innerHTML = something;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+</script>
+
+</body>
+</html>
+
+
+2:- Remove Negetive from array with callback?*****************************************************************************************************************
+
+<script>
+// Create an Array
+const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+
+// Call removeNeg with a Callback
+const posNumbers = removeNeg(myNumbers, (x) => x >= 0);  //(x) => x >= 0 this is callback function 
+console.log(posNumbers);
+// Remove negative numbers
+function removeNeg(numbers, callback) {
+  const myArray = [];
+  for (const x of numbers) {
+    if (callback(x)) {
+      myArray.push(x);
+    }
+  }
+  return myArray;
+}
+</script>
+
+
+3.:- setInterval function works after every given time.?*****************************************************************************************************************
+
+<p>Using setInterval() to display the time every second (1000 milliseconds).</p>
+
+<h1 id="demo"></h1>
+
+<script>
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+</script>
+
+
+
+4 (1).State Variable and useEffect and useState Etc. **************************************************************************************
+//Index.html
+//__________________________________
+
+// <html lang="en">
+//   <head>
+//     <title>React App</title>
+//   </head>
+
+//   <body>
+//     <noscript> You need to enable JavaScript to run this app. </noscript>
+//     <div id="root"></div>
+//   </body>
+// </html>
+
+//App.jsx//
+//________________________________
+// import Products from "./Products"; // becuase we have created index.js in each folder,its good practice
+
+// export default function App() {
+//   return (
+//     <div className="App">
+//       <Products />
+//     </div>
+//   );
+// }
+
+//ProductCard.jsx
+//________________________________
+
+// export default function ProductCard(props) {
+//     return (
+//       <div className="card">
+//         <span> {props.product.title} </span>
+//         <div>{props.product.price}</div>
+//       </div>
+//     );
+//   }
+
+import ProductCard from "./ProductCard";
+const products = [
+  {
+    id: 1,
+    title: "Apple",
+    price: "100000",
+  },
+  {
+    id: 2,
+    title: "Samsung",
+    price: "30000",
+  },
+  {
+    id: 3,
+    title: "Moto",
+    price: "115000",
+  },
+];
+export default function Products() {
+  let gp = [];
+  gp = products;
+  return (
+    <div>
+      {gp.map((product) => {
+        return <ProductCard product={product} key={product.id} />;
+      })}
+    </div>
+  );
+}
+
+//Output:-
+
+// Apple
+// 100000
+// Samsung
+// 30000
+// Moto
+// 115000
+
+
+4(2).*****************************************************************************************************************
+//if we want some delay to load Data.
+
+import ProductCard from "./ProductCard";
+const products = [
+  {
+    id: 1,
+    title: "Apple",
+    price: "100000",
+  },
+  {
+    id: 2,
+    title: "Samsung",
+    price: "30000",
+  },
+  {
+    id: 3,
+    title: "Moto",
+    price: "115000",
+  },
+];
+//delay 1 minute or mock and api call after 1 minute
+function getProductsApi(callback) {
+  setTimeout(() => {
+    callback(products);
+  }, 1000);
+}
+export default function Products() {
+  let gp = [];
+  getProductsApi(function (resp) {
+    gp = resp;
+  });
+  return (
+    <div>
+      {gp.map((product) => {
+        return <ProductCard product={product} key={product.id} />;
+      })}
+    </div>
+  );
+}
+
+//Output:-
+//Null,
+because first time this will mount/executed but after 1 minute of delay our given code not executed :-
+
+// return (
+//     <div>
+//       {gp.map((product) => {
+//         return <ProductCard product={product} key={product.id} />;
+//       })}
+//     </div>
+//   );
+
+but using  state variable in react we can make it possible.
+
+//It | executed with empty gp array, when component loaded first time its called mounting.//
+//To executed/rerender Again we use State Variable in react.
+
+//// state variable in react
+// I am a special kind of varibale
+// whose value once set would cause a rerender of the component
+// it would persist the value of the var on every rerender
+//So:- now we will check that after 1 minute when our gp array value is set then StateVariable rerender again,
+
+// useState(default Value)
+// return [stateVar, setterFn]
+// setteFn() => setting and rerendering, Products() function
+//Check given example 
+
+4(3).*****************************************************************************************************************
+//using state variable:-
+
+import ProductCard from "./ProductCard";
+import { useState } from "react"; //step 1  //its nameed export,multiple other things returning from react
+
+const products = [
+  {
+    id: 1,
+    title: "Apple",
+    price: "100000",
+  },
+  {
+    id: 2,
+    title: "Samsung",
+    price: "30000",
+  },
+  {
+    id: 3,
+    title: "Moto",
+    price: "115000",
+  },
+];
+//delay 1 minute or mock and api call after 1 minute
+function getProductsApi(callback) {
+  setTimeout(() => {
+    callback(products);
+  }, 1000);
+}
+export default function Products() {
+  //let gp = []; //state variable
+  let [gp, setGp] = useState([]);
+  getProductsApi(function (resp) {
+    setGp(resp);
+    // gp = resp;
+  });
+  return (
+    <div>
+      {gp.map((product) => {
+        return <ProductCard product={product} key={product.id} />;
+      })}
+    </div>
+  );
+}
+
+
+//Output:- 
+Apple
+100000
+Samsung
+30000
+Moto
+115000
+
+//if you set the value of a state variable and component is rerendered then the children would be rerendered,children means productCard.jsx code which is attached to our product() method:-
+//Note:- it happens(render/execution) only three times,we dont go into the infinite loop? why did this happen?
+//cycle:- 
+first time the product() function will be called (first time) with empty array and after 1 minute the  callback(products);will be called(in settimeout function) and will set the state variable value (second time),
+..after one minute ,once the value is set and rerender again then react checks the state variable value and  the previous value ,if
+its same then it stops rerendering.
+thats why it rerenders three times.(third time)
+
+
+//Note :-
+  let [gp, setGp] = useState([]);
+ setGp(resp); setGp(resp) means setGp setting the resp value into gp.
+
+
+5.*****************************************************************************************************************
+//App.js
+_____________________
+
+
+// useEffect hook
+// useEffect(fn, []);
+// I will call this callback function
+// everytime dependent on this dependency array
+
+//Note:- There are 3 things can be in dependency array
+// when there is no dependency array
+// when there is an empty dependency array
+// when there is some value in this array
+
+// what can be passed in this dependency array
+// you can pass a state variable and you can pass a props from the parent which is a state variable
+
+import { useState, useEffect } from "react"; //step 1  //its nameed export,multiple other things returning from react
+
+//==> when there is no dependency array in useEffect HOOK
+//called on both mounting and rerendering phase,everytime mounting and rerendering.
+
+// export default function App() {
+//   let [count, setCount] = useState(0);
+//   useEffect(function () {
+//     console.log("Mount");
+//   }); //Here is no dependency array in useEffect
+
+//   function inc() {
+//     setCount(count + 1);
+//   }
+//   return (
+//     <div className="App">
+//       <button onClick={inc}>inc</button>
+//     </div>
+//   );
+// }
+// //Output:- Its Incrementing and printing
+
+//******************************************************* */
+//==>when there is an empty dependency array  in useEffect HOOK
+
+// export default function App() {
+//   let [count, setCount] = useState(0);
+//   useEffect(function () {
+//     console.log("Mount");
+//   }, []); //here is an empty dependency array
+
+//   function inc() {
+//     setCount(count + 1);
+//   }
+//   return (
+//     <div className="App">
+//       <button onClick={inc}>inc</button>
+//     </div>
+//   );
+// }
+//Output:- Its called on mounting phase(mounting means page load) only and printed Mount only,
+//it will not called for rerendering when we click on button,it doesnt care about rerendering
+.
+//******************************************************* */
+//==>when there is an empty dependency array  in useEffect HOOK
+
+export default function App() {
+  let [count, setCount] = useState(0);
+  useEffect(function () {
+    console.log("Mount");
+  }, []); //here is an empty dependency array
+
+  function inc() {
+    setCount(count + 1);
+  }
+  return (
+    <div className="App">
+      <button onClick={inc}>inc</button>
+    </div>
+  );
+}
+//Output:- Its called on mounting phase(mounting means page load) only and printed Mount only,
+//it will not called for rerendering when we click on button,it doesnt care about rerendering
+.
+1:49:34
+
+
+
+6.*****************************************************************************************************************
+
+7.*****************************************************************************************************************
+
+8.*****************************************************************************************************************
+
+
+9.*****************************************************************************************************************
+
+
+
+10.*****************************************************************************************************************
+
+
+11.*****************************************************************************************************************
+
+

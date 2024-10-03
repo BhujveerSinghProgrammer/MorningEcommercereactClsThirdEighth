@@ -1,0 +1,98 @@
+Check if all array elements are equal
+Remove first n elements of an array
+Write a JavaScript program that returns a subset of a string.
+Sample Data: dog
+Expected Output: ["d", "do", "dog", "o", "og", "g"]
+Multiply all object values by x
+Write a JavaScript program to sort an array of JavaScript objects based on one key
+Write a JavaScript program to return the length of the object.
+Output of this	
+function Foo(y) {
+  this.y = y;
+}
+Foo.prototype.x = 10;
+ 
+Foo.prototype.calculate = function (z) {
+  return this.x + this.y + z;
+};
+var b = new Foo(20);
+var c = new Foo(30);
+
+
+b.calculate(30); // 60
+c.calculate(40); // 80
+console.log(
+ 
+  b.__proto__ === Foo.prototype,
+  c.__proto__ === Foo.prototype, 
+  b.constructor === Foo,
+  c.constructor === Foo,
+  Foo.prototype.constructor === Foo, 
+  b.calculate === b.__proto__.calculate,
+  b.__proto__.calculate === Foo.prototype.calculate
+);
+Output for this
+
+var hero = {
+    _name: 'John Doe',
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+   9)	Output for this
+var length = 10;
+function fn() {
+	console.log(this.length);
+}
+
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+
+
+obj.method(fn, 1);
+
+
+   10)Output for this
+	var a = 1; 
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a);
+   11) Write a simple function to tell whether 2 is passed as parameter or not?
+   12) reverse in place
+Question: If you have a string like "I am the good boy". How can you generate "I ma eht doog yob"? Please note that the words are in place but reversed.
+   13) How would you add a class to an element
+   14)  How could I verify whether one element is child of another?
+   15) What is reflow? What causes reflow? How could you reduce reflow?
+   16) What is repaint and when does this happen?
+   17) How could you capture all clicks in a page?
+   18) Write a JavaScript program to set paragraph background color.
+   19) Write a JavaScript program to get the window width and height (any time the window is resized).
+   20) From two inputs get the value of the inputs and make it a string and print in console.
+   21) Add 10 balloons circles of red color and pop each of them and change color to white whenever someone clicks on the balloon.
+
+
+
+
+
+
+
+
+
+
