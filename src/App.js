@@ -10,6 +10,7 @@ export default function App() {
   function increaseQuantity(product) {
     const newCart = { ...cart };
     // ... is spread operator ,copy value ,its deep copy.if we change in newcart then change will affected in cart
+//we are copying a deep copy of cart into newcart.
 
     if (!newCart[product.id]) {
       newCart[product.id] = {
