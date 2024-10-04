@@ -1,9 +1,27 @@
 import "./styles.css";
+import { useEffect, useState, memo } from "react";
 // import Products from "./Products"; //1 dot for one folder out/back
 //import Products from "./Products/Products";//
 import Products from "./Products";// becuase we have created index.js in each folder,its good practice
 
 export default function App() {
+  const [cart, setCart] = useState({});
+
+  function increaseQuantity(product) {
+    const newCart = { ...cart };
+    // ... is spread operator ,copy value ,its deep copy.if we change in newcart then change will affected in cart
+
+    if (!newCart[product.id]) {
+      newCart[product.id] = {
+        id: product.id,
+        title: product.title,
+        price: product.price.value,
+        quantity: 0
+      };
+    }
+    newCart[product.id].quantity += 1;
+    setCart(newCart);
+
   return (
     <div className="App">
       <Products />
