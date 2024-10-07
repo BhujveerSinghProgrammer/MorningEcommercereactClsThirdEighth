@@ -1,0 +1,38 @@
+import "./styles.css";
+import { useEffect, useState } from "react";
+import Products from "./Products";// becuase we have created index.js in each folder,its good practice
+
+export default function App() {
+  const [cart, setCart] = useState({});
+
+  function increaseQuantity(product) {
+    const newCart = { ...cart };
+    // ... is spread operator ,copy value ,its deep copy.if we change in newcart then change will affected in cart
+//we are copying a deep copy of cart into newcart.
+
+    if (!newCart[product.id]) {
+      newCart[product.id] = {
+        id: product.id,
+        title: product.title,
+        price: product.price.value,
+        quantity: 0
+      };
+    }
+    newCart[product.id].quantity += 1;
+    setCart(newCart);
+
+  return (
+    <div className="App">
+      <Products />
+    </div>
+  );
+}
+
+//When we use state variable then it rerenders,if you will change the particular key of an object,react will not find out,
+where there is a change in the object or not, because it just sees the reference of the object ,it doesnt sees the internal of the objects,
+ const newCart = { ...cart };=|
+ we are changing the reference of the object by creating a deep copy so that react whenever,
+ its going to set the state( setCart(newCart);),react is going to rerender the component,if you dont do ( const newCart = { ...cart })
+  this ,then this  setCart(newCart) will not work.
+
+

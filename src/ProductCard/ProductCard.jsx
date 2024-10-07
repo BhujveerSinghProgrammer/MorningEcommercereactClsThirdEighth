@@ -1,5 +1,7 @@
 import "./ProductCard.css"
 
+import AddToCart from "../AddToCart";
+
 //  export default function ProductCard(props) {
 //   return <div>
 //     Product Card 
@@ -9,11 +11,17 @@ import "./ProductCard.css"
 //  }
 
 
-export default function ProductCard(props) {
+export default function ProductCard({product,increaseQuantity,decreaseQuantity,cart}) {
    return (
     <div className="card">
-       <span> {props.product.title} </span>
-      <div>{props.product.price.value}</div>
+       <h2> {product.title} </h2>
+       <h4>{product.price.value}</h4>
+       <AddToCart
+       product={product}
+      increaseQuantity={increaseQuantity}
+      decreaseQuantity={decreaseQuantity}
+      cart={cart}
+      />
     </div>
   );
  }

@@ -30,15 +30,13 @@ const products = [
 // }
 
 //Api call to get the data 
-export default function Products() {
+export default function Products({increaseQuantity,decreaseQuantity,cart}) {
 
   // let gp=[];//state var
     //useState(default Value) returns [stateVar, setterFn] thatswhy we are using let [gp,setGp]=useState([]);
     let [gp,setGp]=useState([]); //step 2 useState(default Value),default value was empty array (let gp=[];)
  //Note :- it returns return [stateVar, setterFn] (let [gp,setGp]),here gp was stateVar and we made setterFn=setGp
 let [isLoading,setLoading]=useState(true);
-
-console.log("api call started");
 useEffect(
     function () {
       // getProductsApi(function (res) {
@@ -106,7 +104,14 @@ else
   return (
     <div>
        {gp.map((product) => {
-        return <ProductCard product={product} key={product.id} />; 
+        return <ProductCard
+         product={product}
+         key={product.id} 
+      increaseQuantity={increaseQuantity}
+      decreaseQuantity={decreaseQuantity}
+      cart={cart}
+
+        />; 
       })}
     </div>
   );

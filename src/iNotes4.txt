@@ -1,0 +1,65 @@
+what is props in js with example?
+
+In JavaScript, particularly in the context of React, "props" (short for properties) are a way to pass data from one component to another. They allow components to be dynamic and reusable by providing a way to configure them with different values.
+perent to child.
+
+Example of Using Props in React
+Here's a simple example that demonstrates how props work in a React application:
+
+Creating a Child Component: This component will receive props and display them.
+________________________________________________________________________________________
+// ChildComponent.jsx
+import React from 'react';
+
+const ChildComponent = (props) => {
+    return (
+        <div>
+            <h1>Hello, {props.name}!</h1>
+            <p>You are {props.age} years old.</p>
+        </div>
+    );
+};
+
+export default ChildComponent;
+_______________________________________________________________________________________________
+Creating a Parent Component: This component will pass data to the child component via props.
+
+// ParentComponent.jsx
+import React from 'react';
+import ChildComponent from './ChildComponent';
+
+const ParentComponent = () => {
+    const person = {
+        name: 'Alice',
+        age: 30,
+    };
+
+    return (
+        <div>
+            <h1>Welcome to the App</h1>
+            <ChildComponent name={person.name} age={person.age} />
+        </div>
+    );
+};
+
+export default ParentComponent;
+Using the Parent Component: Finally, render the ParentComponent in your main application file.
+
+// App.jsx
+import React from 'react';
+import ParentComponent from './ParentComponent';
+
+const App = () => {
+    return (
+        <div>
+            <ParentComponent />
+        </div>
+    );
+};
+
+export default App;
+________________________________________________________________________________________
+Key Points:
+Props are read-only: Once a prop is set by the parent component, the child component cannot modify it.
+Props can be of any data type: They can be strings, numbers, arrays, objects, or even functions.
+Default Props: You can define default values for props using defaultProps.
