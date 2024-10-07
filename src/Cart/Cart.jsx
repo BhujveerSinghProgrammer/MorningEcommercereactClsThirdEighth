@@ -5,14 +5,11 @@ function Cart({cart})
   (
     <div>
       <ul>
-        {
-          cartList.map((item)=>
-          {
-            <li> key={item.div}
+        {cartList.map((item) => (
+          <li key={item.id}>
             {item.title} {item.quantity}
-            </li>
-          })
-        }
+          </li>
+        ))}
       </ul>
     </div>
   );
