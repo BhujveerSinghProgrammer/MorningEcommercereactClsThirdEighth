@@ -2,8 +2,7 @@ function Cart({cart})
 {
   const cartList=cart? Object.values(cart):[];
   return  
-<div>Cart</div>
-
+<div>cart</div>
 //   (
 //     <div>
 //       <ul>
