@@ -1,6 +1,6 @@
-function Rating()
+function Rating({rating,maxrating})
 {
-  return (<div>Rating</div>);
+  return (<div>{rating}/{maxrating}</div>);
 
 }
 
