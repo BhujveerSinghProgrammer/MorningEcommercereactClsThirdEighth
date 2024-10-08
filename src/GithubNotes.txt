@@ -2,6 +2,11 @@ Q1:-How to create react app:-
 Ans:- Open VS Code-->Terminal-->go to folder (cd myapp)-->npm install create-react-app myapp
 -->npx create-react-app myapp  -->npm run start
 
+Q1.2 How to install dependencies?
+Ans:-PS D:\clone\MorningEcommercereactClsThird> npm i @mdi/react react@18.3.1
+     PS D:\clone\MorningEcommercereactClsThird>npm install
+  
+
 
 Q11.HOW TO CLONE Project from GitHub to VSCode.
 
