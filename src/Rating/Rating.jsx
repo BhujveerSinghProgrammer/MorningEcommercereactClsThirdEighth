@@ -18,6 +18,7 @@ function Rating({ rating, maxrating }) {
             className={classNames("rating__star", {
               "rating__star--active": isActive
             })}
+            //Note:- "rating__star" class will always call and conditionaly "rating__star--active" will be called dependent on isActive true.
           />
         );
       })}
