@@ -18,3 +18,9 @@ Ans:- props
 
 q6. whats the Hook?
 Ans:- its helper function.
+
+q7.custom Hook useWindowSize
+Ans:- hiding added cart values based on height and width of a window/browser's screen.
+if you want to find the local storage and for a team we can make custom hook for this.
+
+q8.
