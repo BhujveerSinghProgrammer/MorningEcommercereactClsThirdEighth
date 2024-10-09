@@ -1,0 +1,44 @@
+
+//Q1.var dogs = ["Fido", "Odie", "Oscar"] dogs.length = 1
+Ans:- ["Fido"]
+
+
+//Q2.What is JSX?
+Ans:- HTML written in JS files
+
+//Q3.What is jest and cypress in js? for unit testing and end to end testing?
+Ans:-
+
+Jest and Cypress are popular JavaScript testing frameworks, but they serve different purposes in the testing ecosystem.
+
+Jest
+Type: Unit testing framework.
+
+Purpose: Primarily used for testing JavaScript code, especially in React applications. It can also handle other types of tests like integration tests.
+
+
+Features:---
+
+Fast and Isolated: Each test runs in isolation, which helps identify issues quickly.
+
+Built-in Mocks: Jest comes with built-in mocking capabilities, making it easier to test components in isolation.
+
+Snapshots: It supports snapshot testing, which allows you to track changes in your components.
+Easy Configuration: Requires minimal setup and configuration to get started.
+
+Cypress:-
+
+
+Type: End-to-end testing framework.
+
+Purpose: Designed for testing web applications in a browser. It allows you to simulate user interactions and test the entire application flow.
+
+Features:
+
+Real-Time Testing: Provides an interactive test runner that shows tests as they run in real-time.
+
+Automatic Waiting: Automatically waits for elements to appear, eliminating the need for manual timeouts.
+
+Network Control: Allows you to stub network requests and control responses, making it easier to test different scenarios.
+
+Debugging Tools: Offers powerful debugging capabilities through the browser’s developer tools.
