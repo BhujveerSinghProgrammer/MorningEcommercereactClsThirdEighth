@@ -1,8 +1,8 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-import Products from "./Products";
-import AddToCart from "./AddToCart";
-import Cart from "./Cart";
+import Products from "./components/Products";
+import AddToCart from "./components/AddToCart";
+import Cart from "./components/Cart";
 
 export default function App() {
   const [cart, setCart] = useState({});

@@ -16,4 +16,5 @@ Memoize a function
 //q5.What is feature of react is used to customise a Component
 Ans:- props
 
-
+q6. whats the Hook?
+Ans:- its helper function.
