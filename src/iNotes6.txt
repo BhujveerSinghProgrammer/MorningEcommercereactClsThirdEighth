@@ -22,5 +22,6 @@ Ans:- its helper function.
 q7.custom Hook useWindowSize
 Ans:- hiding added cart values based on height and width of a window/browser's screen.
 if you want to find the local storage and for a team we can make custom hook for this.
+so resuable code even for a single line of code,we can create a custom hook like useWindowSize hook.
 
 q8.
