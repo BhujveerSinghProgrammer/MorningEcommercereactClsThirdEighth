@@ -1,4 +1,7 @@
 
+Topic:- Routing 
+______________________________
+
 //Q1.var dogs = ["Fido", "Odie", "Oscar"] dogs.length = 1
 Ans:- ["Fido"]
 

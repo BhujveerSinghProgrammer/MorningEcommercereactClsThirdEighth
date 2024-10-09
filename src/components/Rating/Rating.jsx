@@ -40,3 +40,24 @@ export default Rating;//it will be implemented in ProductCard.
 // * * * * // *
 // rating // max rating
 // **** // another map *
+
+
+//scaler.com/scm
+
+// you could just create a react app
+// host it using cloudfront
+// you could upload your application on S3
+// you could make your cloudfront point to the S3 folder and server that
+// application
+// everything now would be your api based
+// there is no server req for you to serve
+
+// how do you think your frontend in general is served
+
+// client requests a page
+// sever has multiple routes
+// routes there are controller
+// controller checks that which page has to be served
+// picks the html in front of it
+// and serves that html
+

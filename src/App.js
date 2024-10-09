@@ -42,3 +42,7 @@ export default function App() {
   );
    
 }
+
+// if route === "cart" display cart component
+// if route === "product" dispaly product component
+
