@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import Products from "./components/Products";
 import AddToCart from "./components/AddToCart";
 import Cart from "./components/Cart";
+import CartContext from "./context/CartContext";
+
+import ProductsPage from "./pages/ProductsPage";
+import CartPage from "./pages/CartPage";
+import { Switch, Route } from "react-router-dom";
+
 
 export default function App() {
   const [cart, setCart] = useState({});
@@ -29,16 +35,19 @@ export default function App() {
     }
     setCart(newCart);
   }
-
+ 
   return (
-    <div className="App">
-      <Cart cart={cart} />
-      <Products
-      increaseQuantity={increaseQuantity}
-      decreaseQuantity={decreaseQuantity}  //passing as props(from parent to child)
-      cart={cart}
-      />
+        <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
+     <div className="App">
+<Switch>
+          <Route exact={true} path="/" component={ProductsPage} />
+          <Route exact={true} path="/cart" component={CartPage} />
+</Switch>
+      {/* <Cart />
+      <Products /> */}
     </div>
+ </CartContext.Provider>
+   
   );
    
 }

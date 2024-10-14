@@ -1,9 +1,11 @@
 
 import useWindowSize from "../../hooks/useWindowSize";
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
 
-
-function Cart({cart})
+function Cart()
 {
+  const { cart } = useContext(CartContext);
   const cartList=cart? Object.values(cart):[];
   let { width, height } = useWindowSize();
   console.log(width);
