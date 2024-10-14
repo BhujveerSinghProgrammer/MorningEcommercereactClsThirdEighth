@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-import Products from "./components/Products";
-import AddToCart from "./components/AddToCart";
+// import Products from "./components/Products";
+// import AddToCart from "./components/AddToCart";
 import Cart from "./components/Cart";
 import CartContext from "./context/CartContext";
 
@@ -39,9 +39,10 @@ export default function App() {
   return (
         <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
      <div className="App">
-<Switch>
+ <Switch>
+            <Route exact={true} path="/cart" component={CartPage} />
           <Route exact={true} path="/" component={ProductsPage} />
-          <Route exact={true} path="/cart" component={CartPage} />
+
 </Switch>
       {/* <Cart />
       <Products /> */}

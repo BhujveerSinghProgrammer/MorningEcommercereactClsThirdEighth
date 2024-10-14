@@ -10,8 +10,8 @@ function Cart()
   let { width, height } = useWindowSize();
   console.log(width);
 
-if(width>720)
-{
+// if(width>720)
+// {
   return (
     <div>
       <ul>
@@ -23,12 +23,12 @@ if(width>720)
       </ul>
     </div>
   );
-}
+//}
 
-else
-{
-return null;
-}
+// else
+// {
+// return null;
+// }
 
 
 }
