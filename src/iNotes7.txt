@@ -1,15 +1,26 @@
 
 Topic:- Routing 
 ______________________________
+Q1. Why do we need context?
+Ans:-wrapped everything in CartContext, to avoid props drilling,to make the state available globaly.
+ if you have multiple context then use one below the other in your code.
+ 
+Q2:-<Switch> 
+Ans:-//using switch it stops after one route. IF WE DONt use it loads so many pages on a single page,after every match.
 
-//Q1.var dogs = ["Fido", "Odie", "Oscar"] dogs.length = 1
+Q3:-//Why we use exact={true}?
+Ans:- exact matching we are using exact={true}
+
+Q4:-//using Routing :- rendering diffrent pages using single application.
+
+//Q5.var dogs = ["Fido", "Odie", "Oscar"] dogs.length = 1
 Ans:- ["Fido"]
 
 
-//Q2.What is JSX?
+//Q6.What is JSX?
 Ans:- HTML written in JS files
 
-//Q3.What is jest and cypress in js? for unit testing and end to end testing?
+//Q7.What is jest and cypress in js? for unit testing and end to end testing?
 Ans:-
 
 Jest and Cypress are popular JavaScript testing frameworks, but they serve different purposes in the testing ecosystem.

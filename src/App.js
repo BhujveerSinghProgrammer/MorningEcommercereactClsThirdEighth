@@ -13,6 +13,7 @@ import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
 import { Switch, Route } from "react-router-dom";
 
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const [cart, setCart] = useState({});
@@ -44,17 +45,12 @@ export default function App() {
 //wrapped everything in CartContext
         <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
      <div className="App">
-       <Switch>
-          <Route path="/"  component={ProductsPage} />
-          <Route  path="/cart" component={CartPage} />
-        </Switch>
-
-         <Switch>
-          <Route exact={true} path="/" component={ProductsPage} />
+         <Switch> //using switch it stops after one route.
+          <Route exact={true} path="/" component={ProductsPage} />// exact matching we are using exact={true}
           <Route exact={true} path="/cart" component={CartPage} />
-        
+            <Route component={NotFound} />
         </Switch>
-
+        //using Routing :- rendering diffrent pages using single application.
 
        {/* <Cart />
       <Products />  */}
