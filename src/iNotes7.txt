@@ -1,10 +1,12 @@
+ Q0.<Link to="/cart">View Cart </Link>
+ Ans:-using the Link tag we move without reloading a page.
 
 Topic:- Routing 
 ______________________________
 Q1. Why do we need context?
 Ans:-wrapped everything in CartContext, to avoid props drilling,to make the state available globaly.
  if you have multiple context then use one below the other in your code.
- 
+
 Q2:-<Switch> 
 Ans:-//using switch it stops after one route. IF WE DONt use it loads so many pages on a single page,after every match.
 

@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 
 import ProductCard from "../ProductCard";
+import { Link } from "react-router-dom"; 
+
 // const products = [
 //   {
 //     id:1,
@@ -46,6 +48,8 @@ else
 {
   return (
     <div>
+        <Link to="/cart">View Cart </Link>
+
        {gp.map((product) => {
         return <ProductCard
          product={product}
