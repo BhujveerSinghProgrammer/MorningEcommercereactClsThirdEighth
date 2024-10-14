@@ -1,8 +1,12 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-// import Products from "./components/Products";
-// import AddToCart from "./components/AddToCart";
-import Cart from "./components/Cart";
+
+//import Products from "./components/Products";
+//import AddToCart from "./components/AddToCart";
+
+
+//import Cart from "./components/Cart";
+
 import CartContext from "./context/CartContext";
 
 import ProductsPage from "./pages/ProductsPage";
@@ -37,15 +41,23 @@ export default function App() {
   }
  
   return (
+//wrapped everything in CartContext
         <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
      <div className="App">
- <Switch>
+       <Switch>
+          <Route path="/"  component={ProductsPage} />
+          <Route  path="/cart" component={CartPage} />
+        </Switch>
+
+         <Switch>
           <Route exact={true} path="/" component={ProductsPage} />
           <Route exact={true} path="/cart" component={CartPage} />
-          {/* <Route component={NotFound} /> */}
+        
         </Switch>
-      {/* <Cart />
-      <Products /> */}
+
+
+       {/* <Cart />
+      <Products />  */}
     </div>
  </CartContext.Provider>
    

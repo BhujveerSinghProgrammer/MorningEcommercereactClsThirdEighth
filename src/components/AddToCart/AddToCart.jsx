@@ -28,9 +28,10 @@ else
    {
    return (
     <div >
-     <button onClick={increment}>+</button>
+           <button onClick={decrease} >-</button>
+
      <span>{quantity}</span>
-     <button onClick={decrease} >-</button>
+     <button onClick={increment}>+</button>
     </div>
 
 
