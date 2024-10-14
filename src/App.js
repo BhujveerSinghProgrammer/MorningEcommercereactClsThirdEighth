@@ -40,10 +40,10 @@ export default function App() {
         <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
      <div className="App">
  <Switch>
-            <Route exact={true} path="/cart" component={CartPage} />
           <Route exact={true} path="/" component={ProductsPage} />
-
-</Switch>
+          <Route exact={true} path="/cart" component={CartPage} />
+          {/* <Route component={NotFound} /> */}
+        </Switch>
       {/* <Cart />
       <Products /> */}
     </div>

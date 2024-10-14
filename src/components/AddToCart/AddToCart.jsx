@@ -4,6 +4,7 @@ import CartContext from "../../context/CartContext";
 function AddToCart({product})
 {
   const { cart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  console.log({cart});
   function increment()
   {
     console.log('increment');
@@ -26,7 +27,7 @@ if(quantity===0)
 else
    {
    return (
-    <div>
+    <div >
      <button onClick={increment}>+</button>
      <span>{quantity}</span>
      <button onClick={decrease} >-</button>

@@ -9,9 +9,7 @@ const root = createRoot(rootElement);
 // root.render(<App />);
 root.render(
 <BrowserRouter>
-    {/* <Provider store={store}> */}
       <App />
-    {/* </Provider> */}
   </BrowserRouter>
 );
 
