@@ -1,5 +1,19 @@
+Imp:-Q01. (Memo)  or if we add on addToCart button then all the products binded are getting rerendered why?
+Ans:-when the global state updates/context updates then the childrens also update,thats why causing childrens to be rerendered,
+but if the one children are not dependent on the context then  why it should get updated?
+to overcome this situation you have to use Memo.
+using memo the components rerendered only when its dependent on the parent state change/context updates,
+Note:-But when we are adding to cart,then why full add to cart is rerendered again and again?
+Every cart should not rerendered,only the required card should rerendered,in order to solve for this,there is something called redux.
+This is limitation of  context, the context if there is a change in state ,everything that there is in the object would be rerendered.
+you cant specificaly subscribe to a key in an object for a particular state,in the case of redux,you can subscribe for a key. but in context you cant do this.
+
+ 
  Q0.<Link to="/cart">View Cart </Link>
- Ans:-using the Link tag we move without reloading a page.
+ Ans:-using the Link tag we move without reloading a page. it retains whatever is in the state.it does not reload the page.
+ it just add things to the url,
+ it just pushes to the history of the url, and make sure that the page does not reload.it appends to the url and just changes the components.
+ if we use anchor tag thats reload our page.
 
 Topic:- Routing 
 ______________________________

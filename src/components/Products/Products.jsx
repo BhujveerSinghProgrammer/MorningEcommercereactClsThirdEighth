@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState,memo} from "react";
 
 import ProductCard from "../ProductCard";
 import { Link } from "react-router-dom"; 
@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 // ];
 
 //Api call to get the data 
-export default function Products({increaseQuantity,decreaseQuantity,cart}) {
+export default memo (function Products({increaseQuantity,decreaseQuantity,cart}) {
   let [gp,setGp]=useState([]);
 let [isLoading,setLoading]=useState(true);
 useEffect(
@@ -64,4 +64,4 @@ else
   );
 }
 
-}
+});

@@ -50,7 +50,6 @@ export default function App() {
           <Route exact={true} path="/cart" component={CartPage} />
             <Route component={NotFound} />
         </Switch>
-        //using Routing :- rendering diffrent pages using single application.
 
        {/* <Cart />
       <Products />  */}
