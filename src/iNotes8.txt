@@ -1,0 +1,162 @@
+                        //Branch Seventh|||||||||||||||||
+_______________________________________________
+Q1.var x = 21;
+var girl = function () {
+console.log(x);
+var x = 20;
+};
+girl ();
+
+ANS:- undefined (due to hoisted)
+
+
+Q2.If you have var y = 1, x = y = typeof x; What is the value of x?
+ANS:-undefined
+
+
+Q3.Which of the following is generally a common requirement in almost any frontend application?
+ANS:-
+
+A
+Templating engine
+B
+Application state management
+Ans:-Both A & B
+
+
+Q4.
+(function () {
+console.log("Original salary was " + salary);
+var salary = "5000$";
+console.log("My New Salary " + salary);
+})();
+
+
+ANS:-
+
+Original salary was undefined (due to hoisted)
+My New Salary 5000$
+
+
+
+Q5.steps to work with Redux?
+ANS:- 
+1.create store.js 
+2.store.js would have reducer and the state
+
+3.reducer:- handle actions and manipulate the state. update state for actions.
+
+4.redux is separate library. redux provide you the global state managament,
+react-redux is bridge between react and redux,
+any functionality required to redux to function with react,would go into the react-redux.
+redux is global state management tool,can be used with viewJs also,angular also,
+its only have the global state management tool functionality not having functionality to intraction with react,
+all the functionality to intract comes under react-redux package.
+if you want to use react then react-redux,if you want to use Viesjs then view-redux and for angular angular-redux,
+
+
+5. Steps:-
+
+1:- Create store(store.js)
+
+2:- provide the store(index.js) , check ex:-
+import { Provider } from "react-redux";
+import store from "./stores/index.js";
+
+
+root.render(
+  <BrowserRouter>
+
+//Adding ,providing store
+    <Provider store={store}>
+      <App />
+    </Provider>
+
+
+
+  </BrowserRouter>
+);
+//Now we have provided the store
+
+3.consume/Access the store
+SENDING OF DATA:-ReduxAddToCart.jsx
+
+import { useDispatch, useSelector } from "react-redux";
+let dispatch = useDispatch();
+
+
+ function increment() {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  }
+
+  function decrease() {
+    dispatch({ type: "REMOVE_FROM_CART", payload: product });
+  }
+
+ SENDING OF DATA IS DONE.
+
+CONSUMING OF DATA:- useSelector FROM (import { useDispatch, useSelector } from "react-redux";) we use to get the data like useContext from 
+(  const { cart, increaseQuantity, decreaseQuantity } = useContext(CartContext);),
+  // useSelector is a hook that takes callback as the parameter
+  // the callback has the state in it as a parameter
+
+-->|||||||||||||||||||||||||||||||||||||||||i have created ReduxAddToCart.jsx and used code like given below:-
+import { useDispatch, useSelector } from "react-redux";
+function ReduxAddToCart({ product }) {
+  let dispatch = useDispatch();
+  // useSelector is a hook that takes call as the param
+  // the callback has the state in it as a parameter
+  console.log("add to cart", product.id);
+
+  let cart = useSelector((state) => {
+     return state.items;
+   });
+
+  function increment() {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  }
+
+  function decrease() {
+    dispatch({ type: "REMOVE_FROM_CART", payload: product });
+  }
+const quantity=cart[product.id]?cart[product.id].quantity:0;//check if cart[product.id] is not null(if product is in cart ) then use (cart[product.id].quantity) else use (0)
+  if (quantity === 0) {
+    return (
+      <div>
+        <button onClick={increment}> Add to Cart</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <button onClick={decrease}> - </button>
+        <span> {quantity} </span>
+        <button onClick={increment}> + </button>
+      </div>
+    );
+  }
+}
+
+export default ReduxAddToCart;
+
+
+-->||||||||||||||||||||||||||||||||||||||||| i have used given code(adding Provider) in index.js file:-
+ import store from "./stores/index.js";
+ import { Provider } from "react-redux";
+
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+
+
+
+
+
+
+6. now use ReduxAddToCart in ProductCard.jsx
+
+import ReduxAddToCart from "../ReduxAddToCart";
+
+ <ReduxAddToCart product={product} />
