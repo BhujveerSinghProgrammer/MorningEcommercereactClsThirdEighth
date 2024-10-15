@@ -1,3 +1,18 @@
+
+imp:-Q011:-WHAT IS CONTEXT AND REDUX?
+Ans:- Context provides you a global state.
+
+// Redux
+// Redux is state management tool
+// it provides you with a global state
+// it would provide you with a way in which you can update this global state
+//Global state
+// way to update this global state
+// way to consume this global state
+// Way to wrap this gloabl state with all the components
+
+
+
 Imp:-Q01. (Memo)  or if we add on addToCart button then all the products binded are getting rerendered why?
 Ans:-when the global state updates/context updates then the childrens also update,thats why causing childrens to be rerendered,
 but if the one children are not dependent on the context then  why it should get updated?
@@ -8,7 +23,10 @@ Every cart should not rerendered,only the required card should rerendered,in ord
 This is limitation of  context, the context if there is a change in state ,everything that there is in the object would be rerendered.
 you cant specificaly subscribe to a key in an object for a particular state,in the case of redux,you can subscribe for a key. but in context you cant do this.
 
- 
+Imp:-Q02. difference between context and Redux?
+Ans:-where you want to subscribe for a particular key of an object Redux comes into the picture but with context u cant do that,
+when we dont want extra rerender in our code ,we use redux.
+
  Q0.<Link to="/cart">View Cart </Link>
  Ans:-using the Link tag we move without reloading a page. it retains whatever is in the state.it does not reload the page.
  it just add things to the url,
