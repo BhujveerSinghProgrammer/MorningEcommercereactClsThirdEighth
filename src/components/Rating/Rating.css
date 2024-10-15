@@ -1,0 +1,7 @@
+.rating__star{
+  color:silver;
+}
+
+.rating__star--active{
+  color:green;
+}

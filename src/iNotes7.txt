@@ -1,0 +1,92 @@
+
+imp:-Q011:-WHAT IS CONTEXT AND REDUX?
+Ans:- Context provides you a global state.
+
+// Redux
+// Redux is state management tool
+// it provides you with a global state
+// it would provide you with a way in which you can update this global state
+//Global state
+// way to update this global state
+// way to consume this global state
+// Way to wrap this gloabl state with all the components
+
+
+
+Imp:-Q01. (Memo)  or if we add on addToCart button then all the products binded are getting rerendered why?
+Ans:-when the global state updates/context updates then the childrens also update,thats why causing childrens to be rerendered,
+but if the one children are not dependent on the context then  why it should get updated?
+to overcome this situation you have to use Memo.
+using memo the components rerendered only when its dependent on the parent state change/context updates,
+Note:-But when we are adding to cart,then why full add to cart is rerendered again and again?
+Every cart should not rerendered,only the required card should rerendered,in order to solve for this,there is something called redux.
+This is limitation of  context, the context if there is a change in state ,everything that there is in the object would be rerendered.
+you cant specificaly subscribe to a key in an object for a particular state,in the case of redux,you can subscribe for a key. but in context you cant do this.
+
+Imp:-Q02. difference between context and Redux?
+Ans:-where you want to subscribe for a particular key of an object Redux comes into the picture but with context u cant do that,
+when we dont want extra rerender in our code ,we use redux.
+
+ Q0.<Link to="/cart">View Cart </Link>
+ Ans:-using the Link tag we move without reloading a page. it retains whatever is in the state.it does not reload the page.
+ it just add things to the url,
+ it just pushes to the history of the url, and make sure that the page does not reload.it appends to the url and just changes the components.
+ if we use anchor tag thats reload our page.
+
+Topic:- Routing 
+______________________________
+Q1. Why do we need context?
+Ans:-wrapped everything in CartContext, to avoid props drilling,to make the state available globaly.
+ if you have multiple context then use one below the other in your code.
+
+Q2:-<Switch> 
+Ans:-//using switch it stops after one route. IF WE DONt use it loads so many pages on a single page,after every match.
+
+Q3:-//Why we use exact={true}?
+Ans:- exact matching we are using exact={true}
+
+Q4:-//using Routing :- rendering diffrent pages using single application.
+
+//Q5.var dogs = ["Fido", "Odie", "Oscar"] dogs.length = 1
+Ans:- ["Fido"]
+
+
+//Q6.What is JSX?
+Ans:- HTML written in JS files
+
+//Q7.What is jest and cypress in js? for unit testing and end to end testing?
+Ans:-
+
+Jest and Cypress are popular JavaScript testing frameworks, but they serve different purposes in the testing ecosystem.
+
+Jest
+Type: Unit testing framework.
+
+Purpose: Primarily used for testing JavaScript code, especially in React applications. It can also handle other types of tests like integration tests.
+
+
+Features:---
+
+Fast and Isolated: Each test runs in isolation, which helps identify issues quickly.
+
+Built-in Mocks: Jest comes with built-in mocking capabilities, making it easier to test components in isolation.
+
+Snapshots: It supports snapshot testing, which allows you to track changes in your components.
+Easy Configuration: Requires minimal setup and configuration to get started.
+
+Cypress:-
+
+
+Type: End-to-end testing framework.
+
+Purpose: Designed for testing web applications in a browser. It allows you to simulate user interactions and test the entire application flow.
+
+Features:
+
+Real-Time Testing: Provides an interactive test runner that shows tests as they run in real-time.
+
+Automatic Waiting: Automatically waits for elements to appear, eliminating the need for manual timeouts.
+
+Network Control: Allows you to stub network requests and control responses, making it easier to test different scenarios.
+
+Debugging Tools: Offers powerful debugging capabilities through the browser’s developer tools.

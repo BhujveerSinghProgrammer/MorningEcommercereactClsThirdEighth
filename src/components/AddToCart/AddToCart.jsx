@@ -1,20 +1,10 @@
-//Changes
-//change 1:- 
-// function AddToCart()
-// {
-//   function increment()
-//   {
-//     console.log('increment');
-//   }
-//     return (
-//      <div><button onClick={increment} >Add to Cart</button></div>
-//         )
-// }
-// export default AddToCart;
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
 
-//change 2:-
-function AddToCart({product,increaseQuantity,decreaseQuantity,cart})
+function AddToCart({product})
 {
+  const { cart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  console.log({cart});
   function increment()
   {
     console.log('increment');
@@ -37,10 +27,11 @@ if(quantity===0)
 else
    {
    return (
-    <div>
-     <button onClick={increment}>+</button>
+    <div >
+           <button onClick={decrease} >-</button>
+
      <span>{quantity}</span>
-     <button onClick={decrease} >-</button>
+     <button onClick={increment}>+</button>
     </div>
 
 

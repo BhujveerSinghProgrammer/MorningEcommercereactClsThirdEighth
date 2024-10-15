@@ -1,11 +1,29 @@
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
+// import store from "./store.js";
+import store from "./store.js";
 
 import App from "./App";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-root.render(<App />); //its just like  document.appendChild(a); we can say to understand:-
+// root.render(<App />);
+root.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+);
+
+
+
+
+
+//its just like  document.appendChild(a); we can say to understand:-
 // root.render(
 //   <div className="App">
 //     <h1>Hello CodeSandbox</h1>
