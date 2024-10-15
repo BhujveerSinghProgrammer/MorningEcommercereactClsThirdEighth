@@ -11,7 +11,7 @@ import { legacy_createStore as createStore } from 'redux';
 import { omit } from "lodash";
 
 function cartReducers(state = { items: {} }, action) {
- switch (action.type) {
+  switch (action.type) {
     // increase quantity of a particular item
     // add that item into the cart
 

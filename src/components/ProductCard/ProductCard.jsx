@@ -6,6 +6,7 @@ import Rating from "../Rating";
 
 import ReduxAddToCart from "../ReduxAddToCart";
 export default function ProductCard({product,increaseQuantity,decreaseQuantity,cart}) {
+     console.log("ProductCart", product.id);
    return (
     <div className="card">
        <h2> {product.title} </h2>
@@ -27,3 +28,5 @@ export default function ProductCard({product,increaseQuantity,decreaseQuantity,c
     </div>
   );
  }
+
+
