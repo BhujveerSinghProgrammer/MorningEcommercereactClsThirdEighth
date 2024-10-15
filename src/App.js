@@ -63,3 +63,32 @@ export default function App() {
 // if route === "cart" display cart component
 // if route === "product" dispaly product component
 
+// context api
+// redux
+//mobx
+
+//context api
+// somehow to provide this global state
+// somehow use this state in the components
+
+// Redux
+// Redux is state management tool
+// it provides you with a global state
+// it would provide you with a way in which you can update this global state
+//Global state
+// way to update this global state
+// way to consume this global state
+// Way to wrap this gloabl state with all the components
+
+// Provider
+
+//Store
+// State  // db
+// Reducer  // controller
+
+// Action
+// Dipatch
+
+// Action =>  dipatched =>  reducer => Manipulate state
+// => Manipulated state provided again to all components
+// => Provider
