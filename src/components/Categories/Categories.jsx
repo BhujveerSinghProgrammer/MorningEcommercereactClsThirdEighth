@@ -1,38 +1,37 @@
-import {useEffect, useState} from "react";
+// import { useEffect, useState } from "react";
 
-function  Categories() {
-let [categories,setCategories]=useState([]);
-useEffect(
-    function () {
+// const categories = [
+//   { id: 1, name: "Mobile" },
+//   { id: 2, name: "Laptops" },
+//   { id: 3, name: "Clothes" },
+// ];
+
+// function GetProductsApi(callback) {
+//   console.log('Hello 1');
+//   setTimeout(() => {
+
+//     callback(categories); // Mock delay of API
+//   }, 1000);
+// }
+
+// export default function Categories() {
+//   let [categories, setCategories] = useState([]);
+
+//   console.log("API call started");
   
-      fetch("https://run.mocky.io/v3/297308ac-aeb0-4e98-8868-9c1d3a878a4c")
-        .then((res) => {
-          return res.json();
-        })
-        .then((response) => {
-          setCategories(response);
-        });
-    },
-    []
-  );
+//   useEffect(() => {
+//     GetProductsApi((resp) => {
+//       setCategories(resp);
+//     });
+//   }, []);
 
-  return
-  (<div>
-    <ul>
-      {
-      categories.map((items)=>
-       (
-       <li key={items.id}  >{items.name}</li> 
-      
-      )
-      
-      )
-      }
-        </ul>)
-      <ul/>
-     </div>
-     );
-  
-}
-
-export default Categories;
+//   return (
+//     <div>
+//       <ul>
+//         {categories.map((item) => (
+//           <li key={item.id}>{item.name}</li> // Correctly returning the <li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }

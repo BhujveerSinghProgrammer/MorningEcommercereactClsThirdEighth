@@ -53,7 +53,7 @@ else
   return (
     <div>
         <Link to="/cart">View Cart </Link>
-<Categories />
+       {/* <Categories /> */}
        {gp.map((product) => {
         return <ProductCard
          product={product}
