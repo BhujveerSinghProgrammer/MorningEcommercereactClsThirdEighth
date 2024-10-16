@@ -1,6 +1,7 @@
 import {useEffect, useState,memo} from "react";
 
 import ProductCard from "../ProductCard";
+import Categories from  "../Categories";
 import { Link } from "react-router-dom"; 
 
 // const products = [
@@ -42,14 +43,17 @@ useEffect(
 
 if(isLoading){
   // return (<img alt="loader" src="../Loading.gif"/>);
-  return (<div>Loading...</div>)
+  return (   <img
+        alt="loader"
+        src="https://media.tenor.com/XasjKGMk_wAAAAAM/load-loading.gif"
+      />);
 }
 else
 {
   return (
     <div>
         <Link to="/cart">View Cart </Link>
-
+<Categories />
        {gp.map((product) => {
         return <ProductCard
          product={product}
