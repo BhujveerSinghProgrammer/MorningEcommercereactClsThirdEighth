@@ -4,11 +4,11 @@ function ReduxAddToCart({ product }) {
   // useSelector is a hook that takes call as the param
   // the callback has the state in it as a parameter
   console.log("add to cart", product.id);
-  let quantity = useSelector((state) => {
-    return state.cart.items[product.id]?.quantity || 0;
-  });
+   let quantity = useSelector((state) => {
+     return state.items[product.id]?.quantity || 0;
+   });
 
-  // let cart = useSelector((state) => {
+  //  let quantity = useSelector((state) => {
   //   return state.items;
   // });
 
@@ -20,7 +20,7 @@ function ReduxAddToCart({ product }) {
     dispatch({ type: "REMOVE_FROM_CART", payload: product });
   }
   // check item quantity in the cart then show either + and - or show add to cart
-  // const quantity = cart[product.id] ? cart[product.id].quantity : 0;
+  //const quantity = cart[product.id] ? cart[product.id].quantity : 0;
   if (quantity === 0) {
     return (
       <div>

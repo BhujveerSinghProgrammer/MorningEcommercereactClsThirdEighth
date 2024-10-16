@@ -1,0 +1,6 @@
+//Advices:-
+1.dont use props drilling
+2.use context in cases where your app is very minimaliztic or one or two extra rerender would not cause any problem.
+3.setting a redux,adding a package,all of that is costly than using context,if you do very complex data management then use Redux.
+else use context for minimal use state management applications.
+
