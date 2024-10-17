@@ -1,7 +1,6 @@
 import {useEffect, useState,memo} from "react";
 
 import ProductCard from "../ProductCard";
-import Categories from  "../Categories";
 import { Link } from "react-router-dom"; 
 
 // const products = [
@@ -38,7 +37,7 @@ useEffect(
           setLoading(false);
         });
     },
-    [gp]
+    []
   );
 
 if(isLoading){
@@ -53,7 +52,7 @@ else
   return (
     <div>
         <Link to="/cart">View Cart </Link>
-       <Categories />
+      
        {gp.map((product) => {
         return <ProductCard
          product={product}

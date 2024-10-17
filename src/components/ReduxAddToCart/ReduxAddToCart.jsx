@@ -3,7 +3,7 @@ function ReduxAddToCart({ product }) {
   let dispatch = useDispatch();
   // useSelector is a hook that takes call as the param
   // the callback has the state in it as a parameter
-  console.log("add to cart", product.id);
+  console.log("Redux add to cart", product.id);
    let quantity = useSelector((state) => {
      return state.items[product.id]?.quantity || 0;
    });
