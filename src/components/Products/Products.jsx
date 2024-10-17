@@ -2,7 +2,7 @@ import {useEffect, useState,memo} from "react";
 
 import ProductCard from "../ProductCard";
 import { Link } from "react-router-dom"; 
-
+import Categories from "../Categories";
 // const products = [
 //   {
 //     id:1,
@@ -49,7 +49,7 @@ else
   return (
     <div>
         <Link to="/cart">View Cart </Link>
-
+<Categories />
        {gp.map((product) => {
         return <ProductCard
          product={product}
