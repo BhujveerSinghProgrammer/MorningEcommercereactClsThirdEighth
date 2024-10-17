@@ -37,22 +37,19 @@ useEffect(
           setLoading(false);
         });
     },
-    []
+    [gp]
   );
 
 if(isLoading){
   // return (<img alt="loader" src="../Loading.gif"/>);
-  return (   <img
-        alt="loader"
-        src="https://media.tenor.com/XasjKGMk_wAAAAAM/load-loading.gif"
-      />);
+  return (<div>Loading...</div>)
 }
 else
 {
   return (
     <div>
         <Link to="/cart">View Cart </Link>
-      
+
        {gp.map((product) => {
         return <ProductCard
          product={product}

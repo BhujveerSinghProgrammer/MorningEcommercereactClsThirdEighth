@@ -15,11 +15,11 @@ function Cart()
   return (
     <div className="dummy">
       <ul>
-        {cartList.map((item) => (
+        {cartList.map((item) => {
           <li key={item.id}>
             {item.title} {item.quantity}
           </li>
-        ))}
+})}
       </ul>
     </div>
   );
