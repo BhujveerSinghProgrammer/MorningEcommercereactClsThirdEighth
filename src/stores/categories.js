@@ -11,52 +11,70 @@
 //   };
 // }
 
+
+
+//Or you can use local api data.
+
 import { useEffect, useState } from "react";
 
+// Mock API function
 function GetProductsApi(callback) {
-  console.log("Ram");
   setTimeout(() => {
     callback(productsOne);
   }, 1000);
 }
 
-
 const productsOne = [
   { id: 1, name: "Mobile" },
   { id: 2, name: "Laptops" },
   { id: 3, name: "Clothes" },
+  { id: 4, name: "Farms" },
 ];
 
+// // Custom hook to load categories
+// export function useLoadCategories() {
+//   const [categories, setCategories] = useState([]);
 
+//   useEffect(() => {
+//     console.log("Category Ultra latest API call started");
+//     GetProductsApi((resp) => {
+//       setCategories(resp);
+//     });
+//   }, []);
+
+//   return categories;
+// }
+
+// Action creator
 export function loadCategories() {
-    let [categories, setCategories] = useState([]); 
-
-  console.log("Category latest api call started");
-  useEffect(() => {
-    GetProductsApi((resp) => {
-      setCategories(resp);
-    });
-  }, []); // Only call once when the component mounts
-
-
-
   return function (dispatch) {
-           dispatch({ type: "LOAD_CATEGORIES_DONE", payload: categories });
+    // Here you might want to trigger loading state or similar
+    dispatch({ type: "LOAD_CATEGORIES_START" });
+
+    // Simulate API call
+    GetProductsApi((response) => {
+      dispatch({ type: "LOAD_CATEGORIES_DONE", payload: response });
+    });
   };
 }
 
-
-function CategoriesReducer(state = { categories: {} }, action) {
+// Reducer
+function CategoriesReducer(state = { categories: [] }, action) {
   console.log("Categories reducer");
 
   switch (action.type) {
     case "LOAD_CATEGORIES_DONE": {
       return {
         ...state,
-        categories: action.payload
+        categories: action.payload,
       };
     }
-
+    case "LOAD_CATEGORIES_START": {
+      return {
+        ...state,
+        // Optional: handle loading state
+      };
+    }
     default: {
       return state;
     }

@@ -3,7 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadCategories } from "../../stores/categories";
 function Categories() {
   const dispatch = useDispatch();
-  dispatch(loadCategories());
+
+
+   // Call loadCategories when the component mounts
+  // useEffect(() => {
+  //   dispatch(loadCategories());
+  // }, [dispatch]);
+
+  //or
+
+   dispatch(loadCategories());
+
+
+
   const categories = useSelector((state) => {
     return state.categories.categories;
   });
