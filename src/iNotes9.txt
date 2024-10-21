@@ -1,0 +1,66 @@
+//Notes:-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Ex1.Deep Copy/Shallow Copy
+Ans:-
+DeepCopy:-
+let a={name:'Bhujveer Singh',Occupation:'sde'}
+let b={...}
+
+b.name='Sai';
+
+Outputs:-
+
+console.log(a)
+{name: 'Bhujveer Singh', Occupation: 'sde'}
+
+console.log(b)
+
+VM527:1 {name: 'Sai', Occupation: 'sde'}
+
+
+Shallow Copy:- if you  change in a then b will also be changed.
+ex:- var a=10
+var b=a;
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+EX2. Vimp:-
+
+let a={name:'Bhujveer',food:{like:'Choco'}}
+console.log(a);
+Output:-  {name:'Bhujveer',food:{like:'Choco'}}
+
+let b={...a}
+console.log(b);
+Output:-  {name:'Bhujveer',food:{like:'Choco'}}
+b.name='Ram'
+console.log(b);
+Output:-  {name:'Ram',food:{like:'Choco'}}
+
+so for Main object it works like Deep Copy But But...................................if we change in nested object it works like shallow copy.
+Please check given example:-
+
+b.food.like='Egg'
+console.log(b);
+Output:-  {name:'Ram',food:{like:'Egg'}}
+
+console.log(a);
+Output:-  {name:'Bhujveer',food:{like:'Egg'}}
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+EX3:- Vimp:-
+
+let a={name:'Bhujveer',food:{like:'Choco'}}
+
+let b={...a,food:{...a.food,like:"Orange"}}  // diffrent way to update nested object
+//Particulary you change the food like__
+
+
+console.log(a);
+Output:-  {name:'Bhujveer',food:{like:'Choco'}}
+
+console.log(b);
+Output:-  {name:'Bhujveer',food:{like:'Orange'}}
+
+
+
