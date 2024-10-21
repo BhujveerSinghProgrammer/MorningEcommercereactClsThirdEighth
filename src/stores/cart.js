@@ -1,3 +1,5 @@
+import omit from 'lodash/omit';
+
 function cartReducers(state = { items: {} }, action) {
   switch (action.type) {
     // increase quantity of a particular item

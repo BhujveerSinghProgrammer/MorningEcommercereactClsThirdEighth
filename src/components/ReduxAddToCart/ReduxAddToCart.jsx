@@ -5,7 +5,7 @@ function ReduxAddToCart({ product }) {
   // the callback has the state in it as a parameter
   console.log("add to cart", product.id);
    let quantity = useSelector((state) => {
-     return state.items[product.id]?.quantity || 0;
+     return state.cart.items[product.id]?.quantity || 0;
    });
 
   //  let quantity = useSelector((state) => {

@@ -1,3 +1,10 @@
+
+=>14:-Note:- thunk says that:- you can simply Dispatch function calls not just objects. (in stores-->index.js),
+so in order to Dispatch function calls,enhance the Redux by applying a middleware which is thunk,which would be able to accept the function call, not just an object.
+we are dispatching function in [Categories-->Categories.js]
+
+
+
 //Advices:-
 =>1.dont use props drilling
 =>2.use context in cases where your app is very minimaliztic or one or two extra rerender would not cause any problem.
@@ -63,4 +70,5 @@ Ans:-state and action (function cartReducers(state = { items: {} }, action) {})
 action adnd payloads are inside the action.
 ==>13.Redux has the limit to have one store not multiple store. and we can have one store and one provider but multiple reducers.
 ==>so you we need to combined multiple reducers into one global state. then provide it to store.
+
 
