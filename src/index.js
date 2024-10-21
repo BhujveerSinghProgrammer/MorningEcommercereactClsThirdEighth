@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 // import store from "./store.js";
-import store from "./store.js";
+import store from "./stores/index.js";
 
 import App from "./App";
 

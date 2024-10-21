@@ -58,5 +58,9 @@ export default function Categories() {
 =>9.but you need multiple Reducers
 =>10.so if you have only one store then you will have to combined those reducers into one store.
 =>11.so Lets create a stores folder. in this we will create cart ,and categories js files for diffrent diffrent reducers and merge these two files into one index.js file
-=>12.
+=>12.What are two things that reducer take as parameters?
+Ans:-state and action (function cartReducers(state = { items: {} }, action) {})
+action adnd payloads are inside the action.
+==>13.Redux has the limit to have one store not multiple store. and we can have one store and one provider but multiple reducers.
+==>so you we need to combined multiple reducers into one global state. then provide it to store.
 
