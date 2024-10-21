@@ -6,5 +6,5 @@
 3.setting a redux,adding a package,all of that is costly than using context,if you do very complex data management then use Redux.
 else use context for minimal use state management applications.
 
-4.
+4....
 
