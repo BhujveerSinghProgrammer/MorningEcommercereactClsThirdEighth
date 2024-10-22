@@ -23,7 +23,7 @@ function Categories() {
   return (
     <div>
       <ul>
-        {categories.map((item) => (
+        {categories?.map((item) => (  
           <li key={item.id}> {item.name}</li>
         ))}
       </ul>

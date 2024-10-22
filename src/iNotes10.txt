@@ -1,7 +1,115 @@
 
-=>14:-Note:- thunk says that:- you can simply Dispatch function calls not just objects. (in stores-->index.js),
-so in order to Dispatch function calls,enhance the Redux by applying a middleware which is thunk,which would be able to accept the function call, not just an object.
+Note:- We are passing function(loadCategories) to Dispatch Like given below:-
+______________________________________________________________________________________
+stores-->Index.js
+__________________________
+import { combineReducers, legacy_createStore as createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk"; //here we are applying applyMiddleware from  thunk..
+
+
+
+import cartReducer from "./cart";
+import categoriesReducer from "./categories";
+
+const reducer = combineReducers({
+  cart: cartReducer,
+  categories: categoriesReducer
+});
+
+const store = createStore(reducer, applyMiddleware(thunk));
+
+export default store;
+
+// that redux has only one store
+
+
+
+
+
+Categories.jsx
+
+
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { loadCategories } from "../../stores/categories";
+function Categories() {
+  const dispatch = useDispatch();
+
+
+   // Call loadCategories when the component mounts
+  // useEffect(() => {
+  //   dispatch(loadCategories());
+  // }, [dispatch]);
+
+  //or
+
+   dispatch(loadCategories());
+
+
+
+  const categories = useSelector((state) => {
+    return state.categories.categories;
+  });
+  console.log(categories);
+  return (
+    <div>
+      <ul>
+        {categories.map((item) => (
+          <li key={item.id}> {item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Categories;
+
+
+
+ Dispatch always Dispatch an object,it will never Dispatch an function. thats what redux had told in its syntax that a Dispatch is always going to take an object,its never going to take function,redux says that i dont have the capablity to handle this function that you are calling in Dispatch.
+so to enhance the capablity of Redux,introducing a middleware like thunk,by thunk you can use function call with Dispatch.  
+
+
+=>Imp:-Note:- thunk says that:- you can simply Dispatch function calls not just objects. (in stores-->index.js),
+so in order to Dispatch function calls,enhance the Redux by applying a middleware(applyMiddleware) which is thunk,which would be able to accept the function call, not just an object.
 we are dispatching function in [Categories-->Categories.js]
+applyMiddleware is a function available inside redux,so in order to dispatch function calls ,
+it enhances the reducer/redux by applying a middleware which is thunk,which would be able to accept the function call,not just an object.
+
+
+==>Q1:-How can react and redux talk to each other?
+Ans:- react and redux talk to each other using your "react-redux" hook that is using "useDispatch" that is provided to you,
+react will dispatch something to redux,suggesting that this is the action that i want you to take,
+->What is something that you can dispatch:-you can dispatch an action
+->In that action what you can dispatch:-you can dispatch an object in that action
+->But in our Categories.jsx under Categories Folder, we are trying to dispatch a function:-But Redux say that i dont have capablity to catch a function, so redux says instead of me building that capablity in myself,because thats not the capablity everybody look for,i would
+probably use package for this that is redux-thunk, which is middleware on top of redux,
+whose job is to take in a function and to return an object.
+it takes a function and return object in redux.
+--<so your thunk middleware will take an input as a function and output as an object,
+
+
+
+
+==>Q2:- if your array on initial load is empty then ?
+Ans:- if array in categories is empty then use "?" , this will work when its not empty
+return (
+    <div>
+      <ul>
+        {categories?.map((item) => (  // if on initial loads 
+          <li key={item.id}> {item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+
+
+==>Q3:- Is store persisted after browser's refresh?
+Ans:- no,store is not persisted after the browser's refreh,its persisted across the state.
+
+==>Q4:-Build:-
+Ans:-Gym,Online Trainers.Nykaa,Shopify(no front end and backend website)
 
 
 
